@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= show_title %></title>
+		<%= csrf_meta_tag %>
+		<%= render 'layouts/stylesheets' %>
+		<%= favicon_link_tag 'bubble3.png' %>
+	</head>
+	<body>
+		<%= render 'layouts/header' %>	
+		<div class="container menu-separator" style="margin-top: 70px !important">
+			<%= yield %>
+		</div>
+	</body>
+</html>

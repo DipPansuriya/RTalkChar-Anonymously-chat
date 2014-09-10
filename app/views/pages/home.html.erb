@@ -1,0 +1,60 @@
+<h1>Welcome to RTalk!</h1>
+
+<% flash.each do |key, value| %>
+	<div class="flash text-<%= key %>"><%= value %></div>
+<% end %>
+
+<div style="text-align:center">
+	<%= image_tag asset_path('bubble2.png') %>
+	<%= image_tag asset_path('bubble2-flipped.png') %>
+</div>
+
+<p>Click the <strong>New Private Chat</strong> button to start a session of your own, or the <strong>Join Private Chat</strong> button to join an existing session, or the <strong>Join Public Room</strong> button to join one of the public rooms.</p>
+
+<div class="btn-group">
+	<div style="float:left; margin-right:10px">
+		<%= link_to "New Private Chat", new_path, :class => "btn btn-large btn-success", :id => "new_private_chat", :"data-trigger" => "hover focus", :"data-content" => "Start a new private chat room", :rel => "popover" %>
+	</div>
+	<div style="float:left; margin-right:10px">
+		<%= link_to "Join Private Chat", join_path, :class => "btn btn-large btn-info", :id => "join_private_chat", :"data-trigger" => "hover focus", :"data-content" => "Join an existing private chat room", :rel => "popover" %>
+	</div>
+	<!-- <div style="float:right; margin:10px">
+		<%#= link_to "Join Public Room", join_path, :class => "btn btn-large btn-danger" %>
+	</div> -->
+	<div style="float:left; margin-right: 10px">
+		<a href="#myModal" class="btn btn-large btn-warning" role="button" rel="popover" data-toggle="modal" id="help" data-content="How to use RTalk" data-trigger="hover focus">Help</a>
+	</div>
+</div>
+
+<h2>What is RTalk?</h2>
+<p>RTalk is a truly anonymous chat site. Unlike Facebook or Google, we do not store your chat data or mine your conversations. No ads, no spam, complete privacy. Just you chatting with your friends.</p>
+
+<p>To start a new session, click the New Session button on the home page. A URL will be generated. You can share it as many people as you want to chat with. You may start as many separate sessions as you want.</p>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Help</h3>
+	</div>
+	<div class="modal-body">
+		<%= render 'layouts/help' %>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+</div>
+
+<script>
+	$(function() {
+		$("#new_private_chat").popover({
+			placement: "bottom"
+		});
+		$("#help").popover({
+			placement: "bottom"
+		});
+		$("#join_private_chat").popover({
+			placement: "bottom"
+		});
+	})
+</script>

@@ -1,0 +1,33 @@
+<h1>Start a new room</h1>
+
+<p>Enter a name to use in chat (at least 4 characters and at most 20 characters long). Use only alphanumeric characters. You will be redirected to the chat room after entering your name. You can also (this is optional) enter a title for the chat room, like "Sports", "Coding", "Travel" and so on. If you don't enter a title, it defaults to "Chat"</p>
+
+<%= form_tag rooms_path, :id => "newroom" do %>
+	<div class="field">
+		<%= text_field_tag :name, nil, :placeholder => "Name" %>
+	</div>
+	<div class="field">
+		<%= text_field_tag :title, nil, :placeholder => "Title (optional)" %>
+	</div>
+	<div class="actions">
+		<%= submit_tag "Start chatting!", :class => "btn btn-warning"%>
+	</div>
+	<% flash.each do |key, value| %>
+		<br>
+		<div class="flash text-<%= key %>"><%= value %></div>
+	<% end %>
+<% end %>
+
+<p>Alternatively, generate a random name by clicking on the <strong>Generate</strong> button below.</p>
+
+<%= javascript_tag do %>
+generate_name = function() {
+	var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for( var i=0; i < 6; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+	$("#name").val(text);
+}
+<% end %>
+
+<%= link_to_function "Generate", "generate_name()", class: "btn btn-primary" %>

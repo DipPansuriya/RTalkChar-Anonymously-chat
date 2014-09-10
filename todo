@@ -1,0 +1,31 @@
+bugs
+-- all messages are being published to messages/new, use rooms/:room_id instead DONE
+-- when new user joins, update users list DEFERRED
+-- redirect users to home when cookies is empty DONE
+
+High:
+convert message time to local
+-- auto links - gem DONE with rails_autolink
+-- room title DONE
+fluid width
+-- copy to clipboard DONE
+-- user list display DONE
+-- 	popovers for the buttons DONE
+-- help modal DONE
+-- reverse chatbox message orientation (newest bottomost) DONE
+-- auto scrolldown as new messages are added DONE
+-- export chat history as .txt, .pdf (look into send_data and send_file) DONE
+send mail with link to chat room
+-- chat search DONE (there by default)
+go off the record (no chat history)
+replace forms with simple_form's forms
+upload files (see carrierwave, paperclip)
+-- when user hovers over 'leave room' show tooltip DONE
+multiline messages
+
+Low:
+-- get better emoticons DONE
+
+Sub-low :)
+multiple rooms using tabs
+add room button
